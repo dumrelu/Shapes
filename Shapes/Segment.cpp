@@ -36,11 +36,13 @@ bool Segment::collidesWith(const Segment &s) const
 #ifdef SHAPES_PRINT
 	std::clog << "Segment::collidesWith(const Segment &s)" << std::endl;
 #endif
-
+	if (p1 == s.p1 || p1 == s.p2 ||
+		p2 == s.p1 || p2 == s.p2)
+		return true;
 	return intersectionPoint(s).first;
 }
 
-//Creaza un segment cu p1 = p2 = p si apeleaza
+//Creaza un segment cu p1 = p, p2 = p+eps si apeleaza
 //metoda de coliziune cu segment.
 bool Segment::collidesWith(const Point &p) const
 {
@@ -48,9 +50,9 @@ bool Segment::collidesWith(const Point &p) const
 	std::clog << "Segment::collidesWith(const Point &p)" << std::endl;
 #endif
 
-	Segment s(p, p);
+	Segment s(p, p+0.0001);
 
-	return intersectionPoint(s).first;
+	return collidesWith(s);
 }
 
 

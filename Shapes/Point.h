@@ -13,10 +13,14 @@ namespace shapes {
 		Point(double xy);
 		
 		/* Operatori aritmetici intre puncte */
-		Point operator+(const Point& p) const;
-		Point operator-(const Point& p) const;
-		Point operator*(const Point& p) const;
-		Point operator/(const Point& p) const;
+		Point operator+(const Point &p) const;
+		Point operator-(const Point &p) const;
+		Point operator*(const Point &p) const;
+		Point operator/(const Point &p) const;
+
+		/* Comparatie */
+		bool operator==(const Point &p) const { return (x == p.x) && (y == p.y); }
+		bool operator!=(const Point &p) const { return !operator==(p); }
 
 		/* Coliziune */
 		bool collidesWith(const Shape &s) const;

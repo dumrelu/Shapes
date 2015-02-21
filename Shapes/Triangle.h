@@ -9,7 +9,7 @@
 namespace shapes {
 
 	//Triunghiul e memorat sub forma de 3 segmente
-	struct Triangle {
+	struct Triangle : public Shape {
 		/* Constructori */
 		Triangle();
 		Triangle(Point p1, Point p2, Point p3);
@@ -27,7 +27,7 @@ namespace shapes {
 		bool collidesWith(const Shape &s) const;
 		bool collidesWith(const Triangle &t) const;
 		bool collidesWith(const Segment &s) const;
-		bool collidesWith(const Point &p) const;
+		bool collidesWith(const Point &p, bool checkIfOnEdge=true) const;
 
 	protected:
 		void printToStream(std::ostream &) const;

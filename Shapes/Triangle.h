@@ -28,6 +28,11 @@ namespace shapes {
 		bool collidesWith(const Triangle &t) const;
 		bool collidesWith(const Segment &s) const;
 		bool collidesWith(const Point &p) const;
+
+	protected:
+		void printToStream(std::ostream &) const;
+		void readFromStream(std::istream &);
+
 	private:
 		Segment segments[3];
 	};

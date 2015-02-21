@@ -31,6 +31,8 @@ bool Segment::collidesWith(const Shape &s) const
 		return Shape::collidesWith(s);
 }
 
+//Verifica mai intai daca punctele p1 si p2 ale segmentelor
+//sunt egale iar daca nu verifica daca se intersecteaza.
 bool Segment::collidesWith(const Segment &s) const
 {
 #ifdef SHAPES_PRINT
@@ -44,6 +46,7 @@ bool Segment::collidesWith(const Segment &s) const
 
 //Creaza un segment cu p1 = p, p2 = p+eps si apeleaza
 //metoda de coliziune cu segment.
+//Segmentul nu poate fi (p, p) pentru ca delta ar fi 0.
 bool Segment::collidesWith(const Point &p) const
 {
 #ifdef SHAPES_PRINT
